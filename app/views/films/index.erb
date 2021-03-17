@@ -1,5 +1,16 @@
 <h1>Films</h1>
 
+
 <% @films.each do |film| %>
-    <%= film.title %>
+<div>
+    <h2><%= film.title %>, Episode <%= film.episode_id %></h2>
+        <ul>
+            
+            <li> <%= film.crawl %> </li>
+            <li> Release Date: <%= film.release_date %> </li>
+    
+
+        </ul>
+    
+</div>
 <% end %>
