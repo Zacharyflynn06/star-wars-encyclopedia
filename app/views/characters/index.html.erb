@@ -1,0 +1,11 @@
+<h1>All Characters</h1>
+
+<% @characters.each do |c| %>
+    <div>
+        <h2>Name: <%= c.name %> <br></h2>
+        <ul>
+            <li>Height: <%= c.height %> <br></li>
+            <li>Gender: <%= c.gender %> <br></li>
+        </ul>
+    </div>
+<% end %>

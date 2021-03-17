@@ -8,7 +8,7 @@
 
 films = Api.get_films
 
-characters = Api.get_people
+characters = Api.get_characters
 
 films["results"].each do |film|
 
@@ -18,11 +18,7 @@ films["results"].each do |film|
     f.episode_id = film["episode_id"]
     f.crawl = film["opening_crawl"]
     f.release_date = film["release_date"]
-
-    byebug
-
     f.save
-
 end
 
 characters["results"].each do |character|
@@ -32,11 +28,14 @@ characters["results"].each do |character|
     c.name = character["name"]
     c.height = character["height"]
     c.gender = character["gender"]
-
-    byebug
-
-
     c.save
+
+    character["films"].each do |film|
+        cf = CharacterFilm.new
+        cf.film_id = film.split("/").last
+        cf.character_id = c.id
+        cf.save
+    end
 
 end
 

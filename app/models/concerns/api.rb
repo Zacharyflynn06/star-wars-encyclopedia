@@ -14,13 +14,9 @@ module Api
             JSON.parse(response.body)
 
         end
-        def get_planets
-            uri = URI.parse(BASE_URL + PLANETS)
-            response = Net::HTTP.get_response(uri)
-            JSON.parse(response.body)
-        end
 
-        def get_people
+
+        def get_characters
             uri = URI.parse(BASE_URL + PEOPLE)
             response = Net::HTTP.get_response(uri)
             JSON.parse(response.body)
